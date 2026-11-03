@@ -164,6 +164,15 @@ end
 bundle add graphql_tag_pluck graphql_tag_rbs --group development
 ```
 
+## Releasing
+
+Releases are automated by the [Release workflow](.github/workflows/release.yml):
+
+1. Bump the version in the `VERSION` file at the repository root in a pull request.
+2. Merge it into `main`.
+
+The workflow then tags the merge commit as `vX.Y.Z`, runs the specs and publishes the gem to RubyGems.org. If publishing fails, re-run it from **Actions → Release → Run workflow**; the existing tag is reused.
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
