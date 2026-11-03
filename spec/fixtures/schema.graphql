@@ -1,0 +1,55 @@
+scalar DateTime
+
+enum Role {
+  ADMIN
+  MEMBER
+}
+
+interface Node {
+  id: ID!
+}
+
+type User implements Node {
+  id: ID!
+  name: String
+  role: Role!
+  createdAt: DateTime!
+  friends(first: Int): [User!]!
+}
+
+type Bot implements Node {
+  id: ID!
+  owner: User
+}
+
+union SearchResult = User | Bot
+
+input UserFilter {
+  role: Role
+  nameContains: String
+  limit: Int! = 10
+  and: [UserFilter!]
+}
+
+input UserLookup @oneOf {
+  id: ID
+  email: String
+}
+
+input UpdateUserInput {
+  id: ID!
+  name: String
+}
+
+type Query {
+  user(id: ID!): User
+  lookup(by: UserLookup!): User
+  users(filter: UserFilter): [User!]!
+  node(id: ID!): Node
+  nodes(ids: [ID!]!): [Node]!
+  search(term: String!): [SearchResult!]!
+}
+
+type Mutation {
+  updateUser(input: UpdateUserInput!): User!
+}
