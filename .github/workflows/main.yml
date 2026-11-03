@@ -14,6 +14,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        # Use series versions: newer runner images only provide the latest
+        # patch release of each series, so exact versions like 3.2.0 break.
         ruby:
           - '3.2'
           - '3.3'
@@ -21,7 +23,7 @@ jobs:
           - '4.0'
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:

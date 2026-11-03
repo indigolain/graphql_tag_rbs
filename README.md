@@ -173,6 +173,8 @@ Releases are automated by the [Release workflow](.github/workflows/release.yml):
 
 The workflow then tags the merge commit as `vX.Y.Z`, runs the specs and publishes the gem to RubyGems.org. If publishing fails, re-run it from **Actions → Release → Run workflow**; the existing tag is reused.
 
+One-time setup: on RubyGems.org, open the gem's **Trusted publishers** settings and add a GitHub Actions publisher with repository `indigolain/graphql_tag_rbs`, workflow `release.yml`, and environment `rubygems.org`. Before the first release, add it as a pending trusted publisher at https://rubygems.org/profile/oidc/pending_trusted_publishers instead.
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
