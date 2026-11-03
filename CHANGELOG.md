@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-03
+
+### Changed
+
+- No changes to the gem itself. The first release published by the Release
+  workflow through trusted publishing; 0.1.0 was pushed by hand because
+  RubyGems.org now requires an asserted owner for a new gem's first push.
+- CI and the Release workflow match graphql_tag_pluck's and use
+  `actions/checkout@v7`, which runs on Node.js 24.
+  ([#2](https://github.com/indigolain/graphql_tag_rbs/pull/2))
+
 ## [0.1.0] - 2026-11-03
 
 ### Added
