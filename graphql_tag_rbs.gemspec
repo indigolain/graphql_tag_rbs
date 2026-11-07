@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "lib/graphql_tag_rbs/version"
-
 Gem::Specification.new do |spec|
   spec.name = "graphql_tag_rbs"
-  spec.version = GraphqlTagRbs::VERSION
+  # Read VERSION here rather than requiring lib/graphql_tag_rbs/version.rb:
+  # Dependabot evaluates the gemspec without the VERSION file that version.rb reads.
+  spec.version = File.read(File.expand_path("VERSION", __dir__)).strip
   spec.authors = ["indigolain"]
   spec.email = ["indigo.lain@gmail.com"]
 
